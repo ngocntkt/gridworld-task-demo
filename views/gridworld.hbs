@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/p5.min.js"></script>
+    <script src="/p5.dom.min.js"></script>
+    <script src="/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Gridworld Game</title>
+</head>
+
+<body>
+    <table border="1" cellpadding="10" cellspacing="0" style="width: 700px;" align="center">
+        <tr>
+            <td>
+                <div align="center">
+                    <h2 id="episode"></h2>
+                </div>
+                <div>
+                    <h3><span align="center" id="step">Step: 0</span> |
+                        <span align="center" id="block">Obstacle: 0</span> |
+                        <span align="center" id="cost">Cost: 0</span> |
+                        <span id="goal"> Value: 0</span> |
+                        <span id="score"> Score: 0</span> 
+                    </h3>
+                    <h3><span id="result"></span></h3>
+                    
+                    <form name="frm">
+                        <input type="hidden" id="mturkId" name="mturkName" value={{data.Mturk_id}} />
+                        <input type="hidden" id="session" name="session" value={{data.session}} />
+                    </form>
+                </div>
+                <form id="gridworld" action="/gridworld" method="POST">
+                    <input type="hidden" name="Mturk_id" value={{data.Mturk_id}} />
+                    <input type="hidden" name="game_name" id="game_name" value='' />
+                    <input type="hidden" id="level" name="level" value={{data.level}} />
+                    <input type="hidden" id="number" name="number" value={{data.number}} />
+                    <input type="hidden" id="session" name="session" value={{data.session}} />
+                    <div id="sketch-holder">
+                        <script src="/game.js"></script>
+                        <script src="/cell.js"></script>
+                    </div>
+                    <div align="right">
+                        <button name="next" id="next-button" type="submit">Next</button>
+                    </div>
+                    <div align="center">
+                        <h3><span id="total"></span></h3>
+                        <button name="finish" formaction="/" id="finish-button" type="submit">Finish</button>
+                    </div>
+                    <script>
+                        $('#gridworld').on('submit', function() {
+                            var sessionId = $('#session').val();
+                            var formAction = $('#gridworld').attr('action');
+                            $('#gridworld').attr('action', formAction + '/' + (Number(sessionId)+1));
+                        });
+                    </script>
+                    
+                </form>
+
+</body>
+
+</html>

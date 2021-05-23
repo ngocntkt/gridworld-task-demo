@@ -1,0 +1,158 @@
+/* Omit html, body { height: 100%; } to only center horizontally. */
+/* html, body {
+  height: 100%;
+} */
+
+html {
+  display: table;
+  margin: auto;
+  margin-top: 25px;
+
+}
+
+body {
+  display: table-cell;
+  margin-top: 10px;
+  vertical-align: middle;
+}
+
+h2, h3{
+  font-family: Arial, Helvetica, sans-serif;
+  /* display:inline; */
+  text-align: center;
+  color: #555555;
+}
+
+#step, #cost{
+  /* display: flex; */
+  /* This centers our sketch horizontally. */
+  /* justify-content: center; */
+  /* This centers our sketch vertically. */
+  /* align-items: center; */
+  color: #555555;
+}
+
+#sketch-holder {
+  display: flex;
+  /* This centers our sketch horizontally. */
+  justify-content: center;
+  /* This centers our sketch vertically. */
+  align-items: center;
+  /* background-color: orange; */
+}
+
+/* canvas {
+  cursor: pointer;
+ }  */
+
+
+#next-button{
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  /* display: inline-block; */
+  display: none;
+}
+
+#finish-button{
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  /* display: inline-block; */
+  display: none;
+}
+
+
+.range-wrap {
+  position: relative;
+  margin: 0 auto 3rem;
+}
+.range {
+  width: 100%;
+}
+.bubble {
+  background: red;
+  color: white;
+  padding: 4px 12px;
+  position: absolute;
+  border-radius: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: red;
+  top: -1px;
+  left: 50%;
+}
+
+/* New */
+
+/* .range-wrap {
+  position: relative;
+}
+
+input[type=range] {
+  display: block;
+  width: 100%;
+  margin: 0;
+  -webkit-appearance: none;
+  outline: none;
+} */
+
+/* input[type=range]::-webkit-slider-runnable-track {
+  position: relative;
+  height: 12px;
+  border: 1px solid #b2b2b2;
+  border-radius: 5px;
+  background-color: #e2e2e2;
+  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+input[type=range]::-webkit-slider-thumb {
+  position: relative;
+  top: -5px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #999;
+  -webkit-appearance: none;
+  background-color: #fff;
+  box-shadow: inset 0 -1px 2px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 100%;
+  cursor: pointer;
+} */
+
+/* .bubble {
+  position: absolute;
+  top: -32px;
+  display: none;
+  width: 50px;
+  height: 24px;
+  border: 1px solid #e2e2e2;
+  background-color: #fff;
+  border-radius: 3px;
+  color: #777;
+  font-size: .8em;
+  line-height: 24px;
+  text-align: center;
+} */
+
+/* input[type=range]:active + output {
+  display: block;
+  transform: translateX(-50%);
+} */

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		.button {
+			background-color: #555555;
+			border: none;
+			color: white;
+			padding: 12px 28px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+		}
+	</style>
+	<title>Instructions</title>
+
+</head>
+
+
+<body>
+	<table border="1" cellpadding="10" cellspacing="0" style="width: 850px;" align="center">
+		<tr>
+			<td>
+				<div align="center">
+					<h1>Instructions</h1>
+
+				</div>
+
+				<div align="justify">
+					{{!-- <p>Hello {{data.Mturk_id}}, your age is {{data.age}}, your education is {{data.edu}}</p> --}}
+					<p> In this study we are interested in assessing how people explore a "gridworld" (see figure below). 
+						A gridworld contains several obstacles (black cells) and four targets that give points in a range from 0 to 100. 
+						The targets are represented by four colored objects (blue, green, orange, and purple). 
+						Only 1 of the 4 objects has a high value, the other 3 objects have a low value.</p>
+					
+					<div align="center">
+						<img src="/img/exampleA.png" alt="Full gridworld" width="303px" , height="250px">
+					</div>
+
+					<p>In this task, all the obstacles and the four targets are concealed, and hence you will be presented with a blank 11 x 11 grid as illustrated in the figure below:
+					</p>
+
+					<div align="center">
+						<img src="/img/exampleB.png" alt="Gridworld" width="303px" , height="250px">
+					</div>
+
+					<p><b>Starting at an initial position (black dot), your goal is to find out where the highest value target is.</b>  
+					To do this task, you need to make sequential decisions about going <i>up</i>, <i>down</i>, <i>left</i> or <i>right</i> to explore the space.
+					You will be provided with <b>40 opportunities</b> (<b>i.e., episodes</b>) to explore the gridworld. 
+					You have a <b>limit of 31 decisions in each episode</b>. 
+					An episode ends when you reach one of the four targets or when you reach the 31-step limit without any target consumption (see figure below). 
+					</p>
+
+					<div align="center">
+						<img src="/img/exampleD.png" alt="Outcomes" width="627px" , height="300px">
+					</div>
+
+					<p>You will earn points by consuming (i.e., reaching) a target, but also you are penalized 1 point for each decision made (i.e., a movement cost).
+					You are also penalized 5 points for walking into an obstacle.
+					{{!-- <b>The total points you earn across the 40 episodes will translate into a monetary incentive as advertised.</b></p> --}}
+					
+				</div>
+
+				{{!-- <div align="justify">
+					<p>
+						<font color="red">
+
+							<b>IMPORTANT:</b> Please do NOT refresh the page or attempt to navigate backward at any
+							point in this study. Doing so will void your response and prevent us from issuing your
+							payment.
+							<br>
+							Please Note, that <b>your attention might be tested multiple times during the
+								experiment.</b> If you fail this attention test <b>twice</b>, you will not receive any
+							<b>bonus payment.</b>
+
+						</font>
+					</p>
+					<p>
+					To help you understand the task, you will do some practice on the next screen. 
+					You will begin the real experiment after a practice session.
+					</p>
+					<p>
+					After clicking the Next button below, you will start the practice session.
+					</p>					
+
+					
+				</div> --}}
+
+				<form id="instruction" action="/gridworld" method="POST" onclick="generateNumber()">
+				{{!-- <form action="/gridtrain" method="POST" onclick="generateNumber()"> --}}
+				{{!-- <form action="/gridtrain" method="POST"> --}}
+					<input type="hidden" name="Mturk_id" value={{data.Mturk_id}} />
+					<input type="hidden" name="level" id="level" value="" />
+					<input type="hidden" name="number" id="number" value="" />
+					<input type="hidden" id="session" name="session" value=1 />
+					<div align="right">
+						<button name="submit" class="button" id="button" type="submit">Next</button>
+					</div>
+					<div align="center">
+					</div> 
+					
+				</form>
+
+			</td>
+		</tr>
+		
+	</table>
+	<script>
+		function generateNumber() {
+			var x = Math.floor((Math.random() * 3));
+			//document.getElementById("level").value = x;
+			document.getElementById("level").value = 2;
+			var z = Math.floor((Math.random() * 100)); //100 files for each level
+			//document.getElementById("number").value = z;
+			document.getElementById("number").value = 100;
+		}
+		function assignNumber(x) {
+			document.getElementById("level").value = 1;
+			
+			document.getElementById("number").value = 21;
+		}
+	</script>
+
+</body >
+<br>
+<nav align="center">
+<footer>&copy; Developed by <a href="https://ngocntkt.github.io/" target="_blank">Ngoc Nguyen</a></footer>
+</nav>
+
+</html >
