@@ -1,6 +1,7 @@
 # IGrid
 
-The Interactive Gridworld (IGrid) is a project implemented to study how humans learn in a goal-seeking task, i.e., a sequential decision-making problem, under different levels of decision complexity in a gridworld environment.
+The Interactive Gridworld (IGrid) is a project implemented to study how humans learn in a goal-seeking task, i.e., a sequential decision-making problem. 
+Link to the demo: http://gridworld-nodejs.herokuapp.com/
 
 ## Architecture
 
